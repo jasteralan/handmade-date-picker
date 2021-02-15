@@ -1,6 +1,6 @@
 # Handmade Date Picker
 
-![](./capture.jpg)
+<img src="/capture.jpg" width=200 />
 
 ## Run Dev Server
 ```
