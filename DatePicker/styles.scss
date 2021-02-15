@@ -1,0 +1,199 @@
+$outRangeColor : #eeeeee;
+$hoveredColor  : #eeeeee;
+$selectedColor : #db3d44;
+
+$panelWidth : 12rem;
+
+@mixin dp-opt($cols) {
+    $gridWidth : #{$panelWidth / $cols};
+
+    width: $gridWidth;
+    height: $gridWidth;
+    line-height: $gridWidth;
+
+    border-radius: 50%;
+    font-size: 1em;
+    text-align: center;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: $hoveredColor;
+    }
+
+    &.--selected,  &.--selected:hover {
+        color: white;
+        background-color: $selectedColor;
+    }
+
+    &.--out-of-range {
+        color: $outRangeColor;
+    }
+
+    &.--out-of-range:hover {
+        color: white;
+        background-color: $hoveredColor;
+    }
+} 
+
+@mixin dp-nav-btn() {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    line-height: 2.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: $hoveredColor;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.demo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.dp-wrapper {
+    position: relative;
+}
+
+.dp-input {
+    position: relative;
+}
+
+.dp-input__icon {
+    position: absolute;
+    top: 50%;
+    left: 0.3rem;
+    width: 1rem;
+    height: 1rem;
+    margin-top: -0.6rem;
+}
+
+.dp-input__input {
+    padding: 0.3rem 0.5rem 0.3rem 1.5rem;
+
+    &:focus { outline: none; }
+}
+
+.dp-panel-wrapper {
+    position: absolute;
+    top: 120%;
+
+    border: 1px solid #aaa;
+    padding: 0.5rem 0.5rem 1rem;
+}
+
+.dp-panel {
+    width: $panelWidth;
+    font-size: 0.8rem;
+}
+
+.dp-nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+}
+
+.dp-nav__pre {
+    @include dp-nav-btn();
+    left: 0;
+    padding-left: 0.7rem;
+}
+
+.dp-nav__next {
+    @include dp-nav-btn();
+    right: 0;
+    padding-right: 0.7rem;
+}
+
+.dp-nav__arrow {
+    width: 1em;
+    height: 1em;
+
+    &.--reverted { 
+        transform: rotate(180deg);
+    }
+}
+
+.dp-nav__label {
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    text-align: center;
+    font-weight: 500;
+
+    &.--switchable {
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #eee;
+        }
+    }
+}
+
+.dp-date__weekdays {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dp-date__weekday {
+    $gridWidth : #{$panelWidth / 7};
+
+    width: $gridWidth;
+    height: $gridWidth;
+    line-height: $gridWidth;
+    text-align: center;
+}
+
+.dp-date__week {
+    display: flex;
+    justify-content: space-between;
+    width: 11.9rem;
+}
+.dp-date__opt {
+    @include dp-opt(7);
+
+    &.--today {
+        color: $selectedColor;
+        background-color: transparent;
+    }
+
+    &.--selected.--today {
+        color: white;
+        background-color: $selectedColor;
+    }
+}
+
+.dp-month__selections {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dp-month__opt {
+    @include dp-opt(4);
+}
+
+.dp-year__selections {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dp-year__opt {
+    @include dp-opt(4);
+}
+

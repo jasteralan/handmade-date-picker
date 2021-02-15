@@ -1,0 +1,33 @@
+{
+    "name": "date_picker",
+    "version": "1.0.0",
+    "description": "Date Picker",
+    "main": "demo.js",
+    "author": "Jaster",
+    "license": "MIT",
+    "scripts": {
+        "dev": "webpack-dev-server --color --progress",
+        "build": "NODE_ENV=production webpack-cli --progress"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-react": "^7.12.10",
+        "babel-loader": "^8.2.2",
+        "clean-webpack-plugin": "^3.0.0",
+        "css-loader": "^5.0.1",
+        "html-webpack-plugin": "^4.5.1",
+        "mini-css-extract-plugin": "^1.2.1",
+        "react-hot-loader": "^4.13.0",
+        "sass-loader": "^10.1.1",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.9",
+        "webpack-dev-server": "^3.10.3"
+    },
+    "dependencies": {
+        "date-fns": "^2.16.1",
+        "node-sass": "4.14.1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1"
+    }
+}
